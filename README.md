@@ -2,7 +2,7 @@
 
 # Ohjelmistotekniikka
 
-## Tehtävät
+## Laskarit
 
 ### Viikko 1
 
