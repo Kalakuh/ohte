@@ -1,4 +1,4 @@
-*This repository is for University of Helsinki's course [ohjelmistotekniikka](https://github.com/mluukkai/ohjelmistotekniikka-kevat2019)*.
+*This repository is for University of Helsinki's course [Ohjelmistotekniikka](https://github.com/mluukkai/ohjelmistotekniikka-kevat2019)*.
 
 # Ohjelmistotekniikka
 
