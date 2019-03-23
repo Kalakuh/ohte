@@ -4,7 +4,8 @@
 
 ## Harjoitustyö
 
-* [Työaikakirjanpito](https://github.com/Kalakuh/ohte/blob/master/doc/vaatimusmaarittely.md)
+* [Vaatimusmäärittely](https://github.com/Kalakuh/ohte/blob/master/doc/vaatimusmaarittely.md)
+* [Työaikakirjanpito](https://github.com/Kalakuh/ohte/blob/master/doc/tuntikirjanpito.md)
 
 ## Laskarit
 
