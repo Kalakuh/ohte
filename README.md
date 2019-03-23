@@ -2,6 +2,10 @@
 
 # Ohjelmistotekniikka
 
+## Harjoitustyö
+
+* [Työaikakirjanpito](https://github.com/Kalakuh/ohte/blob/master/doc/vaatimusmaarittely.md)
+
 ## Laskarit
 
 ### Viikko 1
