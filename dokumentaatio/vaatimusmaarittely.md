@@ -36,3 +36,7 @@ Sovelluksen on tarkoitus olla oppimista edistävä sovellus, jossa käyttäjä v
 * Testausnäkymässä käyttäjä voi vastata osasiko kortin ja siirtyä seuraavaan
 * Testausnäkymästä käyttäjä voi poistua aloitusnäkymään halutessaan
 * Testeusnäkymästä käyttäjä siirretään aloitusnäkymään kun harjoittelu on valmis
+
+## Jatkokehitysideoita
+
+* Mahdollisuus sijoittaa kortteihin tekstin lisäksi kuvia
