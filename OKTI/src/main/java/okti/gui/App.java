@@ -46,7 +46,11 @@ public class App extends Application {
     }
     
     public DeckDAO getDeckDAO() {
-        return this.deckDAO;
+        return App.deckDAO;
+    }
+    
+    public MainScene getMainScene() {
+        return this.mainScene;
     }
     
     public String promptString(String text) {

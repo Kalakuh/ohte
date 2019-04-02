@@ -3,11 +3,9 @@ package okti.gui;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
+import okti.event.ReturnToMainMenuButtonClickedEventHandler;
 
 public class DeckScene extends AppScene {
-    public static final int NEW_DECK = 0;
-    public static final int MODIFY_DECK = 1;
-    
     public DeckScene(App app) {
         super(app);
     }
@@ -15,8 +13,9 @@ public class DeckScene extends AppScene {
     @Override
     public Scene createScene() {
         GridPane grid = new GridPane();
-        Button newDeckButton = new Button("Hello World!");
-        grid.add(newDeckButton, 0, 0);
+        Button mainReturnButton = new Button("Palaa päävalikkoon");
+        mainReturnButton.setOnMouseClicked(new ReturnToMainMenuButtonClickedEventHandler(super.getApp()));
+        grid.add(mainReturnButton, 0, 0);
         
         return new Scene(grid);
     }
