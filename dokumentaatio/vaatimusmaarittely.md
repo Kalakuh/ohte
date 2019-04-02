@@ -1,4 +1,4 @@
-# OKTI (OpetteluKorTtIsovellus)
+# OKTI (Opettelukorttisovellus)
 
 ## Sovelluksen tarkoitus
 
