@@ -8,4 +8,5 @@ public interface DAO<T, K> {
     List<T> findAll() throws SQLException;
     void saveOrUpdate(T object) throws SQLException;
     void delete(K key) throws SQLException;
+    T findLast() throws SQLException;
 }

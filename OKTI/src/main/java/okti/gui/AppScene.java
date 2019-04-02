@@ -8,7 +8,9 @@ public abstract class AppScene {
     public AppScene(App app) {
         this.app = app;
     }
+    
     public abstract Scene createScene();
+    
     protected App getApp() {
         return app;
     }

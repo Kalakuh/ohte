@@ -5,6 +5,7 @@ import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 import okti.domain.Deck;
 import okti.gui.App;
+import okti.gui.DeckScene;
 
 public class NewDeckButtonClickedEventHandler implements EventHandler<MouseEvent> {
     private App app;
@@ -19,10 +20,11 @@ public class NewDeckButtonClickedEventHandler implements EventHandler<MouseEvent
         if (!name.isEmpty()) {
             try {
                 app.getDeckDAO().saveOrUpdate(new Deck(name));
+                int deckId = app.getDeckDAO().findLast().getId();
+                app.setScene(new DeckScene(app, deckId));
             } catch (SQLException ex) {
                 
             }
-            app.setScene(app.getDeckScene());
         }
     }
 }

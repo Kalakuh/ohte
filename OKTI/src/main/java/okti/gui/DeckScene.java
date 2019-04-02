@@ -6,8 +6,11 @@ import javafx.scene.layout.GridPane;
 import okti.event.ReturnToMainMenuButtonClickedEventHandler;
 
 public class DeckScene extends AppScene {
-    public DeckScene(App app) {
+    private int deckId;
+    
+    public DeckScene(App app, int deckId) {
         super(app);
+        this.deckId = deckId;
     }
     
     @Override

@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import okti.domain.Deck;
 
-public class DeckDAO extends GenericDao<Deck> {
+public class DeckDAO extends GenericDAO<Deck> {
     private static final String TABLE_NAME = "Deck";
     
     public DeckDAO(Database database) {

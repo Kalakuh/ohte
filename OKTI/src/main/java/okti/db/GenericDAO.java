@@ -10,11 +10,11 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public abstract class GenericDao<T extends DatabaseObject> implements DAO<T, Integer>{
+public abstract class GenericDAO<T extends DatabaseObject> implements DAO<T, Integer>{
     private final Database database;
     private final String tableName;
     
-    public GenericDao(Database database, String tableName) {
+    public GenericDAO(Database database, String tableName) {
         this.database = database;
         this.tableName = tableName;
         
@@ -43,6 +43,26 @@ public abstract class GenericDao<T extends DatabaseObject> implements DAO<T, Int
         return obj;
     }
 
+    @Override
+    public T findLast() throws SQLException {
+        Connection conn = database.getConnection();
+        PreparedStatement stmt = conn.prepareStatement("SELECT * FROM " + tableName + " ORDER BY id DESC LIMIT 1");
+        ResultSet rs = stmt.executeQuery();
+        boolean hasOne = rs.next();
+        if (!hasOne) {
+            return null;
+        }
+
+        T obj = buildFromResultSet(rs);
+  
+        stmt.close();
+        rs.close();
+
+        conn.close();
+
+        return obj;
+    }
+    
     @Override
     public List<T> findAll() throws SQLException {
         Connection conn = database.getConnection();

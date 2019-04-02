@@ -4,16 +4,16 @@ import java.util.Optional;
 import javafx.application.Application;
 import javafx.scene.control.TextInputDialog;
 import javafx.stage.Stage;
-import okti.db.Database;
 import okti.db.DeckDAO;
+import okti.db.FlashcardDAO;
 
 public class App extends Application {
     public static double APP_WIDTH = 800;
     private static double APP_HEIGHT = 600;
     private static final String APP_NAME = "OKTI";
     private static DeckDAO deckDAO;
+    private static FlashcardDAO flashcardDAO;
     private MainScene mainScene;
-    private DeckScene deckScene;
     private Stage stage;
     
     public void launchApp() {
@@ -23,7 +23,6 @@ public class App extends Application {
     @Override
     public void start(Stage stage) {
         mainScene = new MainScene(this, deckDAO);
-        deckScene = new DeckScene(this);
         
         this.stage = stage;
         this.stage.setTitle("OKTI");
@@ -37,12 +36,12 @@ public class App extends Application {
         App.deckDAO = deckDAO;
     }
     
-    public void setScene(AppScene scene) {
-        stage.setScene(scene.createScene());
+    public void setFlashcardDAO(FlashcardDAO flashcardDAO) {
+        App.flashcardDAO = flashcardDAO;
     }
     
-    public DeckScene getDeckScene() {
-        return this.deckScene;
+    public void setScene(AppScene scene) {
+        stage.setScene(scene.createScene());
     }
     
     public DeckDAO getDeckDAO() {
