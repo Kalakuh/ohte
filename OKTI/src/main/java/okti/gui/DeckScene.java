@@ -5,6 +5,9 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 
 public class DeckScene extends AppScene {
+    public static final int NEW_DECK = 0;
+    public static final int MODIFY_DECK = 1;
+    
     public DeckScene(App app) {
         super(app);
     }

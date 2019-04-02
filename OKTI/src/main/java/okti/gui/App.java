@@ -1,6 +1,8 @@
 package okti.gui;
 
+import java.util.Optional;
 import javafx.application.Application;
+import javafx.scene.control.TextInputDialog;
 import javafx.stage.Stage;
 import okti.db.Database;
 import okti.db.DeckDAO;
@@ -8,7 +10,7 @@ import okti.db.DeckDAO;
 public class App extends Application {
     public static double APP_WIDTH = 800;
     private static double APP_HEIGHT = 600;
-    private static String APP_NAME = "OKTI";
+    private static final String APP_NAME = "OKTI";
     private static DeckDAO deckDAO;
     private MainScene mainScene;
     private DeckScene deckScene;
@@ -41,5 +43,17 @@ public class App extends Application {
     
     public DeckScene getDeckScene() {
         return this.deckScene;
+    }
+    
+    public String promptString(String text) {
+        TextInputDialog td = new TextInputDialog();
+        td.setTitle(text);
+        td.setHeaderText(null);
+        td.setGraphic(null);
+        Optional<String> result = td.showAndWait();
+        if (result.isPresent()) {
+            return result.get();
+        }
+        return "";
     }
 }

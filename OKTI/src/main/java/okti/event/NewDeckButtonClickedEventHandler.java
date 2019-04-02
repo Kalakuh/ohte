@@ -1,6 +1,7 @@
 package okti.event;
 
 import javafx.event.EventHandler;
+import javafx.scene.control.TextInputDialog;
 import javafx.scene.input.MouseEvent;
 import okti.gui.App;
 
@@ -13,6 +14,10 @@ public class NewDeckButtonClickedEventHandler implements EventHandler<MouseEvent
     
     @Override
     public void handle(MouseEvent t) {
-        app.setScene(app.getDeckScene());
+        String name = app.promptString("Anna pakalle nimi");
+        
+        if (!name.isEmpty()) {
+            app.setScene(app.getDeckScene());
+        }
     }
 }
