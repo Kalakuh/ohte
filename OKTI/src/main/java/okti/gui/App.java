@@ -48,6 +48,10 @@ public class App extends Application {
         return App.deckDAO;
     }
     
+    public FlashcardDAO getFlashcardDAO() {
+        return App.flashcardDAO;
+    }
+    
     public MainScene getMainScene() {
         return this.mainScene;
     }

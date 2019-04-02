@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import okti.domain.Flashcard;
 
 public class FlashcardDAO extends GenericDAO<Flashcard> {
@@ -27,10 +29,10 @@ public class FlashcardDAO extends GenericDAO<Flashcard> {
     @Override
     protected String generateCreateTableParams() {
         return "(id integer PRIMARY KEY,\n"
-             + " decd_id integer,\n"
+             + " deck_id integer,\n"
              + " question varchar(150),\n"
              + " answer varchar(150),\n"
-             + " FOREIGN KEY (asiakas_id) REFERENCES Asiakas(id))";
+             + " FOREIGN KEY (deck_id) REFERENCES Deck(id))";
     }
 
     @Override
@@ -43,6 +45,30 @@ public class FlashcardDAO extends GenericDAO<Flashcard> {
             return stmt;
         } catch (SQLException e) {
             return null;
+        }
+    }
+    
+    public List<Flashcard> findByDeckId(int deckId) {
+        try {
+            Connection conn = getDatabase().getConnection();
+            PreparedStatement stmt = conn.prepareStatement("SELECT * FROM " + TABLE_NAME + " WHERE deck_id = ?");
+            stmt.setInt(1, deckId);
+
+            ResultSet rs = stmt.executeQuery();
+            List<Flashcard> results = new ArrayList<>();
+
+            while (rs.next()) {
+                results.add(buildFromResultSet(rs));
+            }
+
+            stmt.close();
+            rs.close();
+
+            conn.close();
+
+            return results;
+        } catch (SQLException e) {
+            return new ArrayList<>();
         }
     }
 }

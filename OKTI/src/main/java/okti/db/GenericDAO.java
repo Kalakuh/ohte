@@ -123,4 +123,8 @@ public abstract class GenericDAO<T extends DatabaseObject> implements DAO<T, Int
     }
 
     protected abstract String generateCreateTableParams();
+    
+    protected Database getDatabase() {
+        return this.database;
+    }
 }
