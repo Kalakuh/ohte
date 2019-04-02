@@ -66,7 +66,7 @@ public abstract class GenericDao<T extends DatabaseObject> implements DAO<T, Int
         
         // insert object into the table
         Connection conn = database.getConnection();
-        PreparedStatement stmt = conn.prepareStatement("INSERT INTO " + tableName + " " + generateInsertionStatement(object));
+        PreparedStatement stmt = generateInsertionStatement(object, conn);
         stmt.execute();
     }
 
@@ -81,9 +81,10 @@ public abstract class GenericDao<T extends DatabaseObject> implements DAO<T, Int
     protected abstract T buildFromResultSet(ResultSet rs);
 
     /**
-     * Generates part of the Insert SQL query. Return value must be of form "(column1, column2, ..) VALUES (value1, value2, ..)".
+     * Generates the insertion SQL statement for inserting the object into the table.
      * @param object Object we are inserting into the table
-     * @return String representing the SQL querys (..) VALUES (..) part
+     * @param tableName Name of the table
+     * @return SQL statement
      */
-    protected abstract String generateInsertionStatement(T object);
+    protected abstract PreparedStatement generateInsertionStatement(T object, Connection conn);
 }
