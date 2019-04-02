@@ -4,8 +4,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public abstract class GenericDao<T extends DatabaseObject> implements DAO<T, Integer>{
     private final Database database;
@@ -14,6 +17,8 @@ public abstract class GenericDao<T extends DatabaseObject> implements DAO<T, Int
     public GenericDao(Database database, String tableName) {
         this.database = database;
         this.tableName = tableName;
+        
+        createIfNotExists();
     }
 
     @Override
@@ -63,7 +68,6 @@ public abstract class GenericDao<T extends DatabaseObject> implements DAO<T, Int
         if (findOne(object.getId()) != null) { // delete old and insert new one
             delete(object.getId());
         }
-        
         // insert object into the table
         Connection conn = database.getConnection();
         PreparedStatement stmt = generateInsertionStatement(object, conn);
@@ -83,8 +87,20 @@ public abstract class GenericDao<T extends DatabaseObject> implements DAO<T, Int
     /**
      * Generates the insertion SQL statement for inserting the object into the table.
      * @param object Object we are inserting into the table
-     * @param tableName Name of the table
+     * @param conn Database connection
      * @return SQL statement
      */
     protected abstract PreparedStatement generateInsertionStatement(T object, Connection conn);
+
+    private void createIfNotExists() {
+        try {
+            Connection conn = database.getConnection();
+            Statement stmt = conn.createStatement();
+            stmt.execute("CREATE TABLE IF NOT EXISTS " + tableName + " " + generateCreateTableParams());
+        } catch (SQLException ex) {
+            System.out.println("Database table creation failed");
+        }
+    }
+
+    protected abstract String generateCreateTableParams();
 }

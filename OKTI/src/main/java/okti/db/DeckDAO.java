@@ -34,4 +34,10 @@ public class DeckDAO extends GenericDao<Deck> {
             return null;
         }
     }
+
+    @Override
+    protected String generateCreateTableParams() {
+        return "(id integer PRIMARY KEY,\n"
+             + " name varchar(50))";
+    }
 }

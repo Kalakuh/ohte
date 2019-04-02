@@ -45,6 +45,10 @@ public class App extends Application {
         return this.deckScene;
     }
     
+    public DeckDAO getDeckDAO() {
+        return this.deckDAO;
+    }
+    
     public String promptString(String text) {
         TextInputDialog td = new TextInputDialog();
         td.setTitle(text);
