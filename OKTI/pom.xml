@@ -38,9 +38,10 @@
                 <version>0.8.3</version>
                 <configuration>
                     <excludes>
-                        <exclude>todoapp/ui/**/*</exclude>
+                        <exclude>okti/gui/*</exclude>
+                        <exclude>okti/event/*</exclude>
                     </excludes>
-                </configuration>
+                </configuration>   
                 <executions>
                     <execution>
                         <id>default-prepare-agent</id>

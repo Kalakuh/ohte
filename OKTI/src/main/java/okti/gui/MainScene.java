@@ -10,6 +10,7 @@ import javafx.scene.layout.GridPane;
 import okti.db.DeckDAO;
 import okti.domain.Deck;
 import okti.event.NewDeckButtonClickedEventHandler;
+import okti.event.PractiseDeckButtonClickedEventHandler;
 
 public class MainScene extends AppScene {
     private static final int COLUMNS = 5;
@@ -43,6 +44,7 @@ public class MainScene extends AppScene {
             Button button = new Button(deck.getName());
             button.setMinWidth(cellSize);
             button.setMinHeight(cellSize);
+            button.setOnMouseClicked(new PractiseDeckButtonClickedEventHandler(super.getApp(), deck.getId()));
             grid.add(button, x, y);
             x++;
             if (x % 5 == 0) {
