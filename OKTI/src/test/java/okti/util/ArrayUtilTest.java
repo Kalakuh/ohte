@@ -1,4 +1,4 @@
-package ArrayUtilTest;
+package okti.util;
 
 import java.util.ArrayList;
 import java.util.List;
