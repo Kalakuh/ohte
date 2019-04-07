@@ -7,13 +7,16 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
-public abstract class GenericDAO<T extends DatabaseObject> implements DAO<T, Integer>{
+public abstract class GenericDAO<T extends DatabaseObject> implements DAO<T, Integer> {
     private final Database database;
     private final String tableName;
     
+    /**
+     * Constructor for GenericDAO object.
+     * @param database Database object that will be used for database operations
+     * @param tableName Name of the database table
+     */
     public GenericDAO(Database database, String tableName) {
         this.database = database;
         this.tableName = tableName;
@@ -102,6 +105,11 @@ public abstract class GenericDAO<T extends DatabaseObject> implements DAO<T, Int
         stmt.execute();
     }
 
+    /**
+     * Constructs an object from the result set.
+     * @param rs Result set that will be used for construction
+     * @return The constructed object
+     */
     protected abstract T buildFromResultSet(ResultSet rs);
 
     /**
@@ -112,6 +120,9 @@ public abstract class GenericDAO<T extends DatabaseObject> implements DAO<T, Int
      */
     protected abstract PreparedStatement generateInsertionStatement(T object, Connection conn);
 
+    /**
+     * Creates the table if it does not already exist.
+     */
     private void createIfNotExists() {
         try {
             Connection conn = database.getConnection();
@@ -121,9 +132,17 @@ public abstract class GenericDAO<T extends DatabaseObject> implements DAO<T, Int
             System.out.println("Database table creation failed");
         }
     }
-
+    
+    /**
+     * Generates parameter part of the CREATE TABLE query for the DAO.
+     * @return CREATE TABLE query's parameter part. Must be of the following form: "(param1 type1,\nparam2 type2,\n...,\nparam_n type_n)"
+     */
     protected abstract String generateCreateTableParams();
     
+    /**
+     * Returns the database object
+     * @return Database object of GenericDAO
+     */
     protected Database getDatabase() {
         return this.database;
     }

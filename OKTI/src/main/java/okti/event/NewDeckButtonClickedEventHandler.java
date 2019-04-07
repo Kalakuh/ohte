@@ -10,6 +10,10 @@ import okti.gui.DeckScene;
 public class NewDeckButtonClickedEventHandler implements EventHandler<MouseEvent> {
     private App app;
     
+    /**
+     * Constructor for an event handler of a new deck button.
+     * @param app The app object where the button is
+     */
     public NewDeckButtonClickedEventHandler(App app) {
         this.app = app;
     }

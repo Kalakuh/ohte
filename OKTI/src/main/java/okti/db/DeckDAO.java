@@ -9,6 +9,10 @@ import okti.domain.Deck;
 public class DeckDAO extends GenericDAO<Deck> {
     private static final String TABLE_NAME = "Deck";
     
+    /**
+     * Constructor for a deck DAO object.
+     * @param database Database object that will be used for all database operations
+     */
     public DeckDAO(Database database) {
         super(database, TABLE_NAME);
     }

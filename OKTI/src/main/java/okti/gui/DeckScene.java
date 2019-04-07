@@ -12,14 +12,21 @@ import okti.event.ReturnToMainMenuButtonClickedEventHandler;
 public class DeckScene extends AppScene {
     private final int deckId;
     
+    /**
+     * Constructor for a deck editing scene.
+     * @param app App in which the scene is
+     * @param deckId Id of the deck
+     */
     public DeckScene(App app, int deckId) {
         super(app);
         this.deckId = deckId;
     }
     
-    @Override
-    public Scene createScene() {
-        GridPane grid = new GridPane();
+    /**
+     * Adds default buttons and texts.
+     * @param grid Grid of scene
+     */
+    private void addDefaultElements(GridPane grid) {
         Button mainReturnButton = new Button("Palaa päävalikkoon");
         mainReturnButton.setOnMouseClicked(new ReturnToMainMenuButtonClickedEventHandler(super.getApp()));
         grid.add(mainReturnButton, 0, 0);
@@ -35,6 +42,13 @@ public class DeckScene extends AppScene {
         Text vastausText = new Text("Vastaus");
         vastausText.setUnderline(true);
         grid.add(vastausText, 1, 1);
+    }
+    
+    @Override
+    public Scene createScene() {
+        GridPane grid = new GridPane();
+        
+        addDefaultElements(grid);
         
         List<Flashcard> cards = super.getApp().getFlashcardDAO().findByDeckId(deckId);
         

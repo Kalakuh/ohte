@@ -8,6 +8,7 @@ import okti.gui.App;
 public class Main {
     
     /**
+     * Main function of the program.
      * @param args the command line arguments
      */
     public static void main(String[] args) {

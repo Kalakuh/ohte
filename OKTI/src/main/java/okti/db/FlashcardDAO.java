@@ -11,6 +11,10 @@ import okti.domain.Flashcard;
 public class FlashcardDAO extends GenericDAO<Flashcard> {
     private static final String TABLE_NAME = "Flashcard";
     
+    /**
+     * Constructor for a flashcard DAO.
+     * @param database Database object used for all database related things
+     */
     public FlashcardDAO(Database database) {
         super(database, TABLE_NAME);
     }
@@ -48,6 +52,11 @@ public class FlashcardDAO extends GenericDAO<Flashcard> {
         }
     }
     
+    /**
+     * Returns all flashcards whose deck id is the given parameter.
+     * @param deckId Id of the deck
+     * @return All matching flashcards
+     */
     public List<Flashcard> findByDeckId(int deckId) {
         try {
             Connection conn = getDatabase().getConnection();

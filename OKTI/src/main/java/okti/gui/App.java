@@ -8,14 +8,17 @@ import okti.db.DeckDAO;
 import okti.db.FlashcardDAO;
 
 public class App extends Application {
-    public static double APP_WIDTH = 800;
-    private static double APP_HEIGHT = 600;
+    public static final double APP_WIDTH = 800;
+    private static final double APP_HEIGHT = 600;
     private static final String APP_NAME = "OKTI";
     private static DeckDAO deckDAO;
     private static FlashcardDAO flashcardDAO;
     private MainScene mainScene;
     private Stage stage;
     
+    /**
+     * Function that launches the app.
+     */
     public void launchApp() {
         launch(App.class);
     }
@@ -32,30 +35,59 @@ public class App extends Application {
         this.stage.show();
     }
     
+    /**
+     * Setter for the static deck DAO.
+     * @param deckDAO The deck DAO of the app
+     */
     public void setDeckDAO(DeckDAO deckDAO) {
         App.deckDAO = deckDAO;
     }
     
+    /**
+     * Setter for the static flashcard DAO.
+     * @param flashcardDAO The flashcard DAO of the app
+     */
     public void setFlashcardDAO(FlashcardDAO flashcardDAO) {
         App.flashcardDAO = flashcardDAO;
     }
     
+    /**
+     * Setter for the scene of the app.
+     * @param scene The scene of the app
+     */
     public void setScene(AppScene scene) {
         stage.setScene(scene.createScene());
     }
     
+    /**
+     * Getter for the static deck DAO.
+     * @return The deck DAO of the app
+     */
     public DeckDAO getDeckDAO() {
         return App.deckDAO;
     }
     
+    /**
+     * Getter for the static flashcard DAO.
+     * @return The flashcard DAO of the app
+     */
     public FlashcardDAO getFlashcardDAO() {
         return App.flashcardDAO;
     }
     
+    /**
+     * Getter for the main scene of the app.
+     * @return The main scene of the app
+     */
     public MainScene getMainScene() {
         return this.mainScene;
     }
     
+    /**
+     * Prompts the user for a string.
+     * @param text Text of the prompt
+     * @return Returns the input string or an empty string
+     */
     public String promptString(String text) {
         TextInputDialog td = new TextInputDialog();
         td.setTitle(text);

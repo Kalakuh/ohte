@@ -17,12 +17,43 @@ public class MainScene extends AppScene {
     private final int cellSize;
     private DeckDAO deckDAO;
     
+    /**
+     * Constructor for a deck practise scene.
+     * @param app App in which the scene is
+     * @param deckDAO deck DAO of the app
+     */
     public MainScene(App app, DeckDAO deckDAO) {
         super(app);
         this.deckDAO = deckDAO;
         this.cellSize = (int) (App.APP_WIDTH / COLUMNS);
     }
 
+    /**
+     * Add deck buttons to the grid.
+     * @param grid The grid of the scene
+     * @param decks List of the decks.
+     */
+    private void addButtons(GridPane grid, List<Deck> decks) {
+        int x = 0;
+        int y = 0;
+        for (Deck deck : decks) {
+            Button button = new Button(deck.getName());
+            button.setMinWidth(cellSize);
+            button.setMinHeight(cellSize);
+            button.setOnMouseClicked(new PractiseDeckButtonClickedEventHandler(super.getApp(), deck.getId()));
+            grid.add(button, x, y);
+            x = (x + 1) % 5;
+            if (x == 0) {
+                y++;
+            }
+        }
+        Button newDeckButton = new Button("Uusi pakka");
+        newDeckButton.setMinWidth(cellSize);
+        newDeckButton.setMinHeight(cellSize);
+        newDeckButton.setOnMouseClicked(new NewDeckButtonClickedEventHandler(super.getApp()));
+        grid.add(newDeckButton, x, y);
+    }
+    
     @Override
     public Scene createScene() {
         List<Deck> decks;
@@ -38,25 +69,7 @@ public class MainScene extends AppScene {
             decks = new ArrayList<>();
         }
         
-        int x = 0;
-        int y = 0;
-        for (Deck deck : decks) {
-            Button button = new Button(deck.getName());
-            button.setMinWidth(cellSize);
-            button.setMinHeight(cellSize);
-            button.setOnMouseClicked(new PractiseDeckButtonClickedEventHandler(super.getApp(), deck.getId()));
-            grid.add(button, x, y);
-            x++;
-            if (x % 5 == 0) {
-                y++;
-                x = 0;
-            }
-        }
-        Button newDeckButton = new Button("Uusi pakka");
-        newDeckButton.setMinWidth(cellSize);
-        newDeckButton.setMinHeight(cellSize);
-        newDeckButton.setOnMouseClicked(new NewDeckButtonClickedEventHandler(super.getApp()));
-        grid.add(newDeckButton, x, y);
+        addButtons(grid, decks);
         
         return new Scene(grid);
     }

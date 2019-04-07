@@ -6,12 +6,16 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import okti.domain.Flashcard;
-import okti.event.NewCardButtonClickedEventHandler;
 import okti.event.ReturnToMainMenuButtonClickedEventHandler;
 
 public class PracticeScene extends AppScene {
     private final int deckId;
     
+    /**
+     * Constructor for a deck practise scene.
+     * @param app App in which the scene is
+     * @param deckId Id of the deck
+     */
     public PracticeScene(App app, int deckId) {
         super(app);
         this.deckId = deckId;

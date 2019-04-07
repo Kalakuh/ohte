@@ -7,6 +7,10 @@ import okti.gui.App;
 public class ReturnToMainMenuButtonClickedEventHandler implements EventHandler<MouseEvent> {
     private App app;
     
+    /**
+     * Constructor for an event handler of a return to main menu button.
+     * @param app The app object where the button is
+     */
     public ReturnToMainMenuButtonClickedEventHandler(App app) {
         this.app = app;
     }

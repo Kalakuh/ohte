@@ -11,6 +11,11 @@ public class NewCardButtonClickedEventHandler implements EventHandler<MouseEvent
     private App app;
     private int deckId;
     
+    /**
+     * Constructor for an event handler of a new card button.
+     * @param app The app object where the button is
+     * @param deckId The id of the deck
+     */
     public NewCardButtonClickedEventHandler(App app, int deckId) {
         this.app = app;
         this.deckId = deckId;

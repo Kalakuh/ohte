@@ -12,7 +12,7 @@ public class ArrayUtil {
     }
     
     /**
-     * Takes a random subset of specified size of elements from ArrayList given in parameters
+     * Takes a random subset of specified size of elements from ArrayList given in parameters.
      * @param <T> Type of ArrayList's elements
      * @param arr ArrayList from where the elements are chosen
      * @param n Number of random elements to choose
@@ -25,7 +25,7 @@ public class ArrayUtil {
         }
         List<T> rnd = new ArrayList<>();
         while (n > 0 && indices.size() > 0) {
-            int index = (int)(Math.random() * indices.size());
+            int index = (int) (Math.random() * indices.size());
             rnd.add(arr.get(indices.get(index)));
             indices.remove(index);
             n--;
