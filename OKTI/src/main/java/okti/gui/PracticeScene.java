@@ -1,9 +1,14 @@
 package okti.gui;
 
 import java.util.List;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import okti.domain.Flashcard;
 import okti.event.PracticeKeyboardEventHandler;
@@ -26,29 +31,27 @@ public class PracticeScene extends AppScene {
     
     @Override
     public Scene createScene() {
-        GridPane grid = new GridPane();
+        BorderPane pane = new BorderPane();
         
         Button mainReturnButton = new Button("Palaa päävalikkoon");
         mainReturnButton.setOnMouseClicked(new ReturnToMainMenuButtonClickedEventHandler(super.getApp()));
         mainReturnButton.setFocusTraversable(false);
-        grid.add(mainReturnButton, 0, 0);
-        
-        Text kysymysText = new Text("Kysymys");
-        kysymysText.setUnderline(true);
-        grid.add(kysymysText, 0, 1);
-        
-        Text vastausText = new Text("Vastaus");
-        vastausText.setUnderline(true);
-        grid.add(vastausText, 1, 1);
+        pane.setTop(mainReturnButton);
         
         List<Flashcard> cards = ArrayUtil.selectRandomSubsetOfSizeN(super.getApp().getFlashcardDAO().findByDeckId(deckId), PRACTICE_SET_SIZE);
         
-        for (int y = 0; y < cards.size(); y++) {
-            grid.add(new Text(cards.get(y).getQuestion()), 0, y + 2);
-            grid.add(new Text(cards.get(y).getAnswer()), 1, y + 2);
-        }
-        Scene scene = new Scene(grid);
-        scene.setOnKeyPressed(new PracticeKeyboardEventHandler());
+        Text cardText = new Text(cards.get(0).getQuestion());
+        cardText.setFont(new Font(36));
+        VBox vbox = new VBox();
+        vbox.getChildren().addAll(cardText);
+        vbox.setAlignment(Pos.CENTER_LEFT);
+        pane.setCenter(cardText);
+        
+        Text instructions = new Text("Paina välilyöntiä kääntääksesi kortin.\nPaina oikeaa nuolinäppäintä jos osaat kortin.\nPaina vasenta nuolinäppäintä jos et osannut korttia.");
+        pane.setBottom(instructions);
+        
+        Scene scene = new Scene(pane);
+        scene.setOnKeyPressed(new PracticeKeyboardEventHandler(super.getApp(), cards, cardText));
         return scene;
     }
 }
