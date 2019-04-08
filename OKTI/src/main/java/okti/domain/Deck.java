@@ -3,7 +3,7 @@ package okti.domain;
 import okti.db.DatabaseObject;
 
 public class Deck extends DatabaseObject {
-    private final String name;
+    private String name;
     
     /**
      * Constructor for Deck objects.
@@ -19,5 +19,13 @@ public class Deck extends DatabaseObject {
      */
     public String getName() {
         return this.name;
+    }
+    
+    /**
+     * Setter for the name of the deck.
+     * @param name The name of the deck
+     */
+    public void setName(String name) {
+        this.name = name;
     }
 }

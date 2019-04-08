@@ -38,6 +38,7 @@
                 <version>0.8.3</version>
                 <configuration>
                     <excludes>
+                        <exclude>okti/Main.class</exclude>
                         <exclude>okti/gui/*</exclude>
                         <exclude>okti/event/*</exclude>
                     </excludes>

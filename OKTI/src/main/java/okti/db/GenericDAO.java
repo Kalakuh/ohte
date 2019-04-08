@@ -88,13 +88,22 @@ public abstract class GenericDAO<T extends DatabaseObject> implements DAO<T, Int
 
     @Override
     public void saveOrUpdate(T object) throws SQLException {
+        int objId = -1;
         if (findOne(object.getId()) != null) { // delete old and insert new one
+            objId = object.getId();
             delete(object.getId());
         }
         // insert object into the table
         Connection conn = database.getConnection();
         PreparedStatement stmt = generateInsertionStatement(object, conn);
         stmt.execute();
+        if (objId != -1) {
+            int lastId = this.findLast().getId();
+            stmt = conn.prepareStatement("UPDATE " + tableName + " SET id = ? WHERE id = ?");
+            stmt.setInt(1, objId);
+            stmt.setInt(2, lastId);
+            stmt.execute();
+        }
     }
 
     @Override
