@@ -80,4 +80,20 @@ public class DeckDAOTest {
             fail();
         }
     }
+    
+    @Test
+    public void deletingDeckWorks() {
+        try {
+            Deck deck = new Deck("Hello");
+            instance.saveOrUpdate(deck);
+            int id = instance.findLast().getId();
+            Deck deck2 = new Deck("Hello");
+            instance.saveOrUpdate(deck2);
+            int id2 = instance.findLast().getId();
+            instance.delete(id2);
+            assertTrue(instance.findLast().getId() == id);
+        } catch (SQLException e) {
+            fail();
+        }
+    }
 }
