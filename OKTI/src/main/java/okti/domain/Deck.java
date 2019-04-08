@@ -1,6 +1,10 @@
 package okti.domain;
 
+import java.sql.SQLException;
+import java.util.List;
+import okti.db.Database;
 import okti.db.DatabaseObject;
+import okti.db.FlashcardDAO;
 
 public class Deck extends DatabaseObject {
     private String name;
@@ -27,5 +31,18 @@ public class Deck extends DatabaseObject {
      */
     public void setName(String name) {
         this.name = name;
+    }
+    
+    @Override
+    public void onDeletion(Database db) {
+        FlashcardDAO dao = new FlashcardDAO(db);
+        List<Flashcard> cards = dao.findByDeckId(super.getId());
+        for (Flashcard card : cards) {
+            try {
+                dao.delete(card.getId());
+            } catch (SQLException ex) {
+                
+            }
+        }
     }
 }

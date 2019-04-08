@@ -18,4 +18,12 @@ public abstract class DatabaseObject {
     public void setId(int id) {
         this.id = id;
     }
+    
+    /**
+     * A function that's called when the object is deleted from the database.
+     * @param db Database object where the object is located
+     */
+    public void onDeletion(Database db) {
+        
+    }
 }

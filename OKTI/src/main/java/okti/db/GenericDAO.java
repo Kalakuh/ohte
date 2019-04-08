@@ -108,6 +108,11 @@ public abstract class GenericDAO<T extends DatabaseObject> implements DAO<T, Int
 
     @Override
     public void delete(Integer key) throws SQLException {
+        T object = findOne(key);
+        if (object == null) {
+            return;
+        }
+        object.onDeletion(database);
         Connection conn = database.getConnection();
         PreparedStatement stmt = conn.prepareStatement("DELETE FROM " + tableName + " WHERE id = ?");
         stmt.setInt(1, key);
