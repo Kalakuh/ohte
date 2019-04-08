@@ -6,13 +6,16 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import okti.domain.Flashcard;
+import okti.event.PracticeKeyboardEventHandler;
 import okti.event.ReturnToMainMenuButtonClickedEventHandler;
+import okti.util.ArrayUtil;
 
 public class PracticeScene extends AppScene {
     private final int deckId;
+    private final static int PRACTICE_SET_SIZE = 10;
     
     /**
-     * Constructor for a deck practise scene.
+     * Constructor for a deck practice scene.
      * @param app App in which the scene is
      * @param deckId Id of the deck
      */
@@ -24,8 +27,10 @@ public class PracticeScene extends AppScene {
     @Override
     public Scene createScene() {
         GridPane grid = new GridPane();
+        
         Button mainReturnButton = new Button("Palaa päävalikkoon");
         mainReturnButton.setOnMouseClicked(new ReturnToMainMenuButtonClickedEventHandler(super.getApp()));
+        mainReturnButton.setFocusTraversable(false);
         grid.add(mainReturnButton, 0, 0);
         
         Text kysymysText = new Text("Kysymys");
@@ -36,13 +41,14 @@ public class PracticeScene extends AppScene {
         vastausText.setUnderline(true);
         grid.add(vastausText, 1, 1);
         
-        List<Flashcard> cards = super.getApp().getFlashcardDAO().findByDeckId(deckId);
+        List<Flashcard> cards = ArrayUtil.selectRandomSubsetOfSizeN(super.getApp().getFlashcardDAO().findByDeckId(deckId), PRACTICE_SET_SIZE);
         
         for (int y = 0; y < cards.size(); y++) {
             grid.add(new Text(cards.get(y).getQuestion()), 0, y + 2);
             grid.add(new Text(cards.get(y).getAnswer()), 1, y + 2);
         }
-        
-        return new Scene(grid);
+        Scene scene = new Scene(grid);
+        scene.setOnKeyPressed(new PracticeKeyboardEventHandler());
+        return scene;
     }
 }
