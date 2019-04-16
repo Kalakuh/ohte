@@ -33,6 +33,16 @@ mvn jacoco:report
 
 Kattavuusraportti löytyy tiedostosta `target/site/jacoco/index.html`
 
+### Jar-tiedoston generointi
+
+Jar-tiedoston voi luoda komennolla
+
+```
+mvn package
+```
+
+Jonka jälkeen generoitu tiedosto löytyy `target`-kansion alta
+
 ### Checkstyle
 
 Tiedostoon checkstyle.xml määritellyt tarkistukset voi suorittaa komennolla 
