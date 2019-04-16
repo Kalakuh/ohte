@@ -10,3 +10,31 @@ OKTI on oppista edistävä opettelukorttisovellus (*engl.* flash card). OKTIssa 
 * [Työaikakirjanpito](https://github.com/Kalakuh/ohte/blob/master/dokumentaatio/tuntikirjanpito.md)
 * [Alustava luokkakaavio](https://github.com/Kalakuh/ohte/blob/master/dokumentaatio/arkkitehtuuri.md)
 * [Alustava tietokantakaavio](https://github.com/Kalakuh/ohte/blob/master/dokumentaatio/relation.png)
+
+## Komentorivikomennot
+
+### Testaus
+
+Testit voi suorittaa komennolla
+
+```
+mvn test
+```
+
+Testikattavuusraportin saa komennolla
+
+```
+mvn jacoco:report
+```
+
+Kattavuusraportti löytyy tiedostosta `target/site/jacoco/index.html`
+
+### Checkstyle
+
+Tiedostoon checkstyle.xml määritellyt tarkistukset voi suorittaa komennolla 
+
+```
+mvn jxr:jxr checkstyle:checkstyle
+```
+
+Tarkistuksen tulokset löytyvät tiedostosta `target/site/checkstyle.html`
