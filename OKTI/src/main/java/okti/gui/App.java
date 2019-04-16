@@ -31,7 +31,7 @@ public class App extends Application {
         this.stage.setTitle("OKTI");
         this.stage.setWidth(APP_WIDTH);
         this.stage.setHeight(APP_HEIGHT);
-        this.stage.setScene(mainScene.createScene());
+        this.stage.setScene((new LoginScene(this)).createScene()/*mainScene.createScene()*/);
         this.stage.show();
     }
     
