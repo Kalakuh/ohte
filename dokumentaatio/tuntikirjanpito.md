@@ -9,5 +9,6 @@
 | 8.4.2019      | 1.0           | Yksikkötestien lisäämistä |
 | 8.4.2019      | 1.5           | Käyttöliittymän uudistus ja harjoittelutoiminnon toteutus |
 | 16.4.2019     | 3             | Käyttäjätunnuksien lisääminen |
+| 16.4.2019     | 0.5           | Dokumentaation lisääminen |
 |               |               |              |
-| Yhteensä      | 12.5                         |
+| Yhteensä      | 16                           |
