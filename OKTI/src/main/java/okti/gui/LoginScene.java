@@ -2,12 +2,16 @@ package okti.gui;
 
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 
 public class LoginScene extends AppScene {
     
@@ -23,9 +27,12 @@ public class LoginScene extends AppScene {
     public Scene createScene() {
         BorderPane pane = new BorderPane();
         
+        VBox loginAndErrorContainer = new VBox();
+        loginAndErrorContainer.setMaxWidth(300);
+        loginAndErrorContainer.setMaxHeight(200);
+        loginAndErrorContainer.setSpacing(15);
+        
         HBox loginContainer = new HBox();
-        loginContainer.setMaxWidth(300);
-        loginContainer.setMaxHeight(200);
         
         VBox labels = new VBox();
         VBox fields = new VBox();
@@ -33,17 +40,29 @@ public class LoginScene extends AppScene {
         TextField usernameField = new TextField();
         PasswordField passwordField = new PasswordField();
         
+        Button loginButton = new Button("Kirjaudu sisään");
+        
         VBox filler = new VBox();
+        VBox filler2 = new VBox();
+        filler2.setMinHeight(7);
+        VBox filler3 = new VBox();
+        filler3.setMinHeight(15);
         labels.getChildren().addAll(filler, new Label("Käyttäjänimi: "), new Label("Salasana: "));
-        fields.getChildren().addAll(usernameField, passwordField);
+        fields.getChildren().addAll(usernameField, passwordField, filler2, loginButton);
         
         labels.setSpacing(10);
         
         labels.setAlignment(Pos.BASELINE_LEFT);
         fields.setAlignment(Pos.BASELINE_RIGHT);
         
+        Text errorText = new Text("Käyttäjänimi ja salasana eivät täsmää");
+        errorText.setFill(Color.RED);
+        
         loginContainer.getChildren().addAll(labels, fields);
-        pane.setCenter(loginContainer);
+        
+        loginAndErrorContainer.getChildren().addAll(loginContainer, errorText);
+        
+        pane.setCenter(loginAndErrorContainer);
         
         Scene scene = new Scene(pane);
         return scene;
