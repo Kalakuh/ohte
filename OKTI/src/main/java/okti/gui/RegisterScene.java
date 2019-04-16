@@ -7,22 +7,21 @@ import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.Border;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import okti.event.GoToRegistrationButtonClickedEventHandler;
+import okti.event.RegisterButtonClickedEventHandler;
 
-public class LoginScene extends AppScene {
+public class RegisterScene extends AppScene {
     
     /**
-     * Constructor for a login scene.
+     * Constructor for a register scene.
      * @param app App in which the scene is
      */
-    public LoginScene(App app) {
+    public RegisterScene(App app) {
         super(app);
     }
     
@@ -43,7 +42,7 @@ public class LoginScene extends AppScene {
         TextField usernameField = new TextField();
         PasswordField passwordField = new PasswordField();
         
-        Button loginButton = new Button("Kirjaudu sisään");
+        Button registerButton = new Button("Luo tunnus");
         
         VBox filler = new VBox();
         VBox filler2 = new VBox();
@@ -51,7 +50,7 @@ public class LoginScene extends AppScene {
         VBox filler3 = new VBox();
         filler3.setMinHeight(15);
         labels.getChildren().addAll(filler, new Label("Käyttäjänimi: "), new Label("Salasana: "));
-        fields.getChildren().addAll(usernameField, passwordField, filler2, loginButton);
+        fields.getChildren().addAll(usernameField, passwordField, filler2, registerButton);
         
         labels.setSpacing(10);
         
@@ -63,12 +62,14 @@ public class LoginScene extends AppScene {
         Text errorText = new Text("");
         errorText.setFill(Color.RED);
         
-        Hyperlink register = new Hyperlink("Ei tunnusta? Luo sellainen tästä!");
+        Hyperlink register = new Hyperlink("Siirry takaisin sisäänkirjautumiseen");
         register.setOnMouseClicked(new GoToRegistrationButtonClickedEventHandler(super.getApp()));
         
         loginAndErrorContainer.getChildren().addAll(loginContainer, errorText, register);
         
         pane.setCenter(loginAndErrorContainer);
+        
+        registerButton.setOnMouseClicked(new RegisterButtonClickedEventHandler(super.getApp(), usernameField, passwordField, errorText));
         
         Scene scene = new Scene(pane);
         return scene;

@@ -3,6 +3,7 @@ package okti;
 import okti.db.Database;
 import okti.db.DeckDAO;
 import okti.db.FlashcardDAO;
+import okti.db.UserDAO;
 import okti.gui.App;
 
 public class Main {
@@ -15,10 +16,12 @@ public class Main {
         Database database = new Database("jdbc:sqlite:okti.db");
         DeckDAO deckDAO = new DeckDAO(database);
         FlashcardDAO flashcardDAO = new FlashcardDAO(database);
+        UserDAO userDAO = new UserDAO(database);
         
         App app = new App();
         app.setDeckDAO(deckDAO);
         app.setFlashcardDAO(flashcardDAO);
+        app.setUserDAO(userDAO);
         app.launchApp();
     }
 }

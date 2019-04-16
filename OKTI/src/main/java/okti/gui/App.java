@@ -6,6 +6,8 @@ import javafx.scene.control.TextInputDialog;
 import javafx.stage.Stage;
 import okti.db.DeckDAO;
 import okti.db.FlashcardDAO;
+import okti.db.UserDAO;
+import okti.domain.User;
 
 public class App extends Application {
     public static final double APP_WIDTH = 800;
@@ -13,8 +15,10 @@ public class App extends Application {
     private static final String APP_NAME = "OKTI";
     private static DeckDAO deckDAO;
     private static FlashcardDAO flashcardDAO;
+    private static UserDAO userDAO;
     private MainScene mainScene;
     private Stage stage;
+    private User currentUser;
     
     /**
      * Function that launches the app.
@@ -44,6 +48,14 @@ public class App extends Application {
     }
     
     /**
+     * Setter for the static user DAO.
+     * @param userDAO The user DAO of the app
+     */
+    public void setUserDAO(UserDAO userDAO) {
+        App.userDAO = userDAO;
+    }
+    
+    /**
      * Setter for the static flashcard DAO.
      * @param flashcardDAO The flashcard DAO of the app
      */
@@ -65,6 +77,14 @@ public class App extends Application {
      */
     public DeckDAO getDeckDAO() {
         return App.deckDAO;
+    }
+    
+    /**
+     * Getter for the static user DAO.
+     * @return The user DAO of the app
+     */
+    public UserDAO getUserDAO() {
+        return App.userDAO;
     }
     
     /**
@@ -98,5 +118,13 @@ public class App extends Application {
             return result.get();
         }
         return "";
+    }
+
+    /**
+     * Setter for the current user.
+     * @param user Current user of the app
+     */
+    public void setCurrentUser(User user) {
+        this.currentUser = user;
     }
 }
