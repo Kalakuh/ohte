@@ -9,7 +9,7 @@ public class DeckTest {
     
     @Before
     public void setUp() {
-        instance = new Deck("tira");
+        instance = new Deck("tira", 0);
     }
     
     @Test

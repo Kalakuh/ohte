@@ -8,13 +8,16 @@ import okti.db.FlashcardDAO;
 
 public class Deck extends DatabaseObject {
     private String name;
+    private int userId;
     
     /**
      * Constructor for Deck objects.
      * @param name Name of the deck
+     * @param userId Id of the owner of the deck
      */
-    public Deck(String name) {
+    public Deck(String name, int userId) {
         this.name = name;
+        this.userId = userId;
     }
     
     /**
@@ -31,6 +34,14 @@ public class Deck extends DatabaseObject {
      */
     public void setName(String name) {
         this.name = name;
+    }
+    
+    /**
+     * Getter for the id of the owner.
+     * @return Id of the owner user.
+     */
+    public int getUserId() {
+        return this.userId;
     }
     
     @Override

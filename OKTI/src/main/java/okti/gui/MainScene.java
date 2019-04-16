@@ -92,11 +92,7 @@ public class MainScene extends AppScene {
             grid.getColumnConstraints().add(new ColumnConstraints(cellSize / 2));
         }
         
-        try {
-            decks = deckDAO.findAll();
-        } catch (SQLException ex) {
-            decks = new ArrayList<>();
-        }
+        decks = deckDAO.findByUserId(super.getApp().getCurrentUser().getId());
         
         addDeckButtons(grid, decks);
         addEditButtons(grid, decks);

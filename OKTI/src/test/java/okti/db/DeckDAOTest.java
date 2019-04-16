@@ -29,9 +29,9 @@ public class DeckDAOTest {
     @Test
     public void gettingLastDeckWorks() {
         try {
-            instance.saveOrUpdate(new Deck("Hello"));
-            instance.saveOrUpdate(new Deck("World!"));
-            instance.saveOrUpdate(new Deck("Hei"));
+            instance.saveOrUpdate(new Deck("Hello", 0));
+            instance.saveOrUpdate(new Deck("World!", 0));
+            instance.saveOrUpdate(new Deck("Hei", 0));
             assertTrue(instance.findLast().getName().equals("Hei"));
         } catch (SQLException e) {
             fail();
@@ -41,11 +41,11 @@ public class DeckDAOTest {
     @Test
     public void gettingDeckByKeyWorks() {
         try {
-            instance.saveOrUpdate(new Deck("Hello"));
-            instance.saveOrUpdate(new Deck("World!"));
+            instance.saveOrUpdate(new Deck("Hello", 0));
+            instance.saveOrUpdate(new Deck("World!", 0));
             int id = instance.findLast().getId();
-            instance.saveOrUpdate(new Deck("Hei"));
-            instance.saveOrUpdate(new Deck("Mualima!"));
+            instance.saveOrUpdate(new Deck("Hei", 0));
+            instance.saveOrUpdate(new Deck("Mualima!", 0));
             assertTrue(instance.findOne(id).getName().equals("World!"));
         } catch (SQLException e) {
             fail();
@@ -55,8 +55,8 @@ public class DeckDAOTest {
     @Test
     public void gettingAllDecksWorks() {
         try {
-            instance.saveOrUpdate(new Deck("Hello"));
-            instance.saveOrUpdate(new Deck("World!"));
+            instance.saveOrUpdate(new Deck("Hello", 0));
+            instance.saveOrUpdate(new Deck("World!", 0));
             List<Deck> decks = instance.findAll();
             assertTrue((decks.get(0).getName().equals("Hello") || decks.get(1).getName().equals("Hello"))
                     && (decks.get(0).getName().equals("World!") || decks.get(1).getName().equals("World!")));
@@ -68,7 +68,7 @@ public class DeckDAOTest {
     @Test
     public void updatingDeckWorks() {
         try {
-            Deck deck = new Deck("Hello");
+            Deck deck = new Deck("Hello", 0);
             instance.saveOrUpdate(deck);
             int id = instance.findLast().getId();
             deck.setId(id);
@@ -84,10 +84,10 @@ public class DeckDAOTest {
     @Test
     public void deletingDeckWorks() {
         try {
-            Deck deck = new Deck("Hello");
+            Deck deck = new Deck("Hello", 0);
             instance.saveOrUpdate(deck);
             int id = instance.findLast().getId();
-            Deck deck2 = new Deck("Hello");
+            Deck deck2 = new Deck("Hello", 0);
             instance.saveOrUpdate(deck2);
             int id2 = instance.findLast().getId();
             instance.delete(id2);

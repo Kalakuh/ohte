@@ -127,4 +127,12 @@ public class App extends Application {
     public void setCurrentUser(User user) {
         this.currentUser = user;
     }
+    
+    /**
+     * Getter for the current user.
+     * @return The current user of the app
+     */
+    public User getCurrentUser() {
+        return this.currentUser;
+    }
 }

@@ -69,7 +69,7 @@ public class LoginScene extends AppScene {
         
         loginAndErrorContainer.getChildren().addAll(loginContainer, errorText, register);
         
-        loginButton.setOnMouseClicked(new LoginButtonClickedEventHandler(super.getApp(), usernameField, usernameField, errorText));
+        loginButton.setOnMouseClicked(new LoginButtonClickedEventHandler(super.getApp(), usernameField, passwordField, errorText));
         
         pane.setCenter(loginAndErrorContainer);
         

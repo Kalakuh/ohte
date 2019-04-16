@@ -23,7 +23,7 @@ public class NewDeckButtonClickedEventHandler implements EventHandler<MouseEvent
         String name = app.promptString("Anna pakalle nimi");
         if (!name.isEmpty()) {
             try {
-                app.getDeckDAO().saveOrUpdate(new Deck(name));
+                app.getDeckDAO().saveOrUpdate(new Deck(name, app.getCurrentUser().getId()));
                 int deckId = app.getDeckDAO().findLast().getId();
                 app.setScene(new DeckScene(app, deckId));
             } catch (SQLException ex) {
