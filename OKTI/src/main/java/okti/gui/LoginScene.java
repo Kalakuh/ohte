@@ -15,6 +15,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import okti.event.GoToRegistrationButtonClickedEventHandler;
+import okti.event.LoginButtonClickedEventHandler;
 
 public class LoginScene extends AppScene {
     
@@ -67,6 +68,8 @@ public class LoginScene extends AppScene {
         register.setOnMouseClicked(new GoToRegistrationButtonClickedEventHandler(super.getApp()));
         
         loginAndErrorContainer.getChildren().addAll(loginContainer, errorText, register);
+        
+        loginButton.setOnMouseClicked(new LoginButtonClickedEventHandler(super.getApp(), usernameField, usernameField, errorText));
         
         pane.setCenter(loginAndErrorContainer);
         

@@ -12,7 +12,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
-import okti.event.GoToRegistrationButtonClickedEventHandler;
+import okti.event.GoToLoginButtonClickedEventHandler;
 import okti.event.RegisterButtonClickedEventHandler;
 
 public class RegisterScene extends AppScene {
@@ -63,7 +63,7 @@ public class RegisterScene extends AppScene {
         errorText.setFill(Color.RED);
         
         Hyperlink register = new Hyperlink("Siirry takaisin sisäänkirjautumiseen");
-        register.setOnMouseClicked(new GoToRegistrationButtonClickedEventHandler(super.getApp()));
+        register.setOnMouseClicked(new GoToLoginButtonClickedEventHandler(super.getApp()));
         
         loginAndErrorContainer.getChildren().addAll(loginContainer, errorText, register);
         
