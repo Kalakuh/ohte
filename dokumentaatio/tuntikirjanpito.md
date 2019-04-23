@@ -10,5 +10,6 @@
 | 8.4.2019      | 1.5           | Käyttöliittymän uudistus ja harjoittelutoiminnon toteutus |
 | 16.4.2019     | 3             | Käyttäjätunnuksien lisääminen |
 | 16.4.2019     | 0.5           | Dokumentaation lisääminen |
+| 23.4.2019     | 1             | Muokkausruudun uudelleenluonti, käyttötapausten päivitystä |
 |               |               |              |
-| Yhteensä      | 16                           |
+| Yhteensä      | 17                           |
