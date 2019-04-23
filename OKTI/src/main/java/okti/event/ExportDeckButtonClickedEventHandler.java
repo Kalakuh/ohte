@@ -30,12 +30,10 @@ public class ExportDeckButtonClickedEventHandler implements EventHandler<MouseEv
     public void handle(MouseEvent t) {
         try {
             Deck deck = app.getDeckDAO().findOne(deckId);
-            String name = deck.getName();
-            String output = name + "\n";
+            String output = deck.getName() + "\n";
             List<Flashcard> cards = app.getFlashcardDAO().findByDeckId(deckId);
             for (Flashcard card : cards) {
-                output += card.getQuestion() + "\n";
-                output += card.getAnswer() + "\n";
+                output += card.getQuestion() + "\n" + card.getAnswer() + "\n";
             }
             FileChooser fileChooser = new FileChooser();
             fileChooser.setTitle("Tallenna pakka");

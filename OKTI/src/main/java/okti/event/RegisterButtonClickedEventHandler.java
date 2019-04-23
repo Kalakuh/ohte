@@ -32,23 +32,14 @@ public class RegisterButtonClickedEventHandler implements EventHandler<MouseEven
     @Override
     public void handle(MouseEvent t) {
         String username = usernameField.getText();
-        String password = passwordField.getText();
         if (username.isEmpty()) {
             errorText.setText("Käyttäjänimi ei saa olla tyhjä.");
-        } else if (password.isEmpty()) {
+        } else if (passwordField.getText().isEmpty()) {
             errorText.setText("Salasana ei saa olla tyhjä.");
         } else {
             try {
-                List<User> users = app.getUserDAO().findAll();
-                boolean exists = false;
-                for (User user : users) {
-                    if (user.getUsername().equals(username)) {
-                        exists = true;
-                        break;
-                    }
-                }
-                if (!exists) {
-                    app.getUserDAO().saveOrUpdate(new User(username, password));
+                if (!userIsInDatabase(username, app)) {
+                    app.getUserDAO().saveOrUpdate(new User(username, passwordField.getText()));
                     app.setCurrentUser(app.getUserDAO().findLast());
                     app.setScene(app.getMainScene());
                 } else {
@@ -58,5 +49,22 @@ public class RegisterButtonClickedEventHandler implements EventHandler<MouseEven
                 errorText.setText("Tuntematon virhe tapahtui.");
             }
         }
+    }
+    
+    /**
+     * Checks if the username is already in use.
+     * @param username Username to be checked
+     * @param app App object where the button is
+     * @return true if user exists, false otherwise
+     * @throws SQLException Exception is thrown if SQL error happens.
+     */
+    private boolean userIsInDatabase(String username, App app) throws SQLException {
+        List<User> users = app.getUserDAO().findAll();
+        for (User user : users) {
+            if (user.getUsername().equals(username)) {
+                return true;
+            }
+        }
+        return false;
     }
 }
