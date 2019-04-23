@@ -24,7 +24,6 @@ public class MainScene extends AppScene {
     /**
      * Constructor for a deck practise scene.
      * @param app App in which the scene is
-     * @param deckDAO deck DAO of the app
      */
     public MainScene(App app) {
         super(app);
