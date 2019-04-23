@@ -52,3 +52,11 @@ mvn jxr:jxr checkstyle:checkstyle
 ```
 
 Tarkistuksen tulokset löytyvät tiedostosta `target/site/checkstyle.html`
+
+### JavaDoc
+
+JavaDocin voi generoida komennolla
+
+```
+mvn javadoc:javadoc
+```
