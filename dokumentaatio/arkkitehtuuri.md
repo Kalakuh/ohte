@@ -1,10 +1,20 @@
 # Arkkitehtuuri
 
+## Ohjelmiston rakenne
+
+Ohjelman rakenne koostuu viidestä pakkauksesta:
+
+* `okti.db` sisältää tietokannan käyttöön tarvittavat luokat. Lisäksi siellä on määritelty luokka `DatabaseObject`, jonka tietokantaan talletettavat oliot perivät.
+* `okti.domain` sisältää tietokantaan talletettavien olioiden luokat: pakan, opettelukortin ja käyttäjän.
+* `okti.gui` sisältää kaiken käyttöliittymään rakentamiseen käytettävän koodin.
+* `okti.event` sisältää käyttöliittymän tarvitsemien tapahtumakäsittelijöiden luokat.
+* `okti.util` sisältää apuluokan, jota käytetään satunnaisen opettelukorttijoukon valitsemiseen.
+
 ## Luokkakaavio
 
 ![Luokkakaavio](https://github.com/Kalakuh/ohte/blob/master/dokumentaatio/class.png)
 
-## Tietokantakaavio
+## Tietokanta
 
 ![Tietokantakaavio](https://github.com/Kalakuh/ohte/blob/master/dokumentaatio/relation.png)
 
