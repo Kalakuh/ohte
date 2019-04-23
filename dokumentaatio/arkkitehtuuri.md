@@ -1,6 +1,12 @@
 # Arkkitehtuuri
 
+## Luokkakaavio
+
 ![Luokkakaavio](https://github.com/Kalakuh/ohte/blob/master/dokumentaatio/class.png)
+
+## Tietokantakaavio
+
+![Tietokantakaavio](https://github.com/Kalakuh/ohte/blob/master/dokumentaatio/relation.png)
 
 ## Päätoiminnallisuudet
 
