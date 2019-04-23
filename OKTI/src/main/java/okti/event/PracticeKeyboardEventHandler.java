@@ -3,6 +3,7 @@ package okti.event;
 import java.util.List;
 import javafx.event.EventHandler;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import okti.domain.Flashcard;
 import okti.gui.App;
@@ -49,9 +50,9 @@ public class PracticeKeyboardEventHandler implements EventHandler<KeyEvent> {
      */
     private void flip() {
         if (flipped) {
-            cardText.setText(cards.get(cardIndex).getQuestion());
+            setText(cards.get(cardIndex).getQuestion());
         } else {
-            cardText.setText(cards.get(cardIndex).getAnswer());
+            setText(cards.get(cardIndex).getAnswer());
         }
         flipped = !flipped;
     }
@@ -66,7 +67,20 @@ public class PracticeKeyboardEventHandler implements EventHandler<KeyEvent> {
             // return to main menu
             app.setScene(app.getMainScene());
         } else {
-            cardText.setText(cards.get(cardIndex).getQuestion());
+            setText(cards.get(cardIndex).getQuestion());
+        }
+    }
+    
+    /**
+     * Sets the text of the practice scene.
+     * @param text The new text
+     */
+    private void setText(String text) {
+        cardText.setText(text);
+        if (!text.matches(".*[0-9a-zA-ZåäöÅÄÖ].*") && text.length() <= 3) { // make for example short kanji strings larger
+            cardText.setFont(new Font(100));
+        } else {
+            cardText.setFont(new Font(36));
         }
     }
 }

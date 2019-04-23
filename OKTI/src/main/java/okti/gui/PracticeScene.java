@@ -41,7 +41,11 @@ public class PracticeScene extends AppScene {
         List<Flashcard> cards = ArrayUtil.selectRandomSubsetOfSizeN(super.getApp().getFlashcardDAO().findByDeckId(deckId), PRACTICE_SET_SIZE);
         
         Text cardText = new Text(cards.get(0).getQuestion());
-        cardText.setFont(new Font(36));
+        if (!cards.get(0).getQuestion().matches(".*[0-9a-zA-ZåäöÅÄÖ].*") && cards.get(0).getQuestion().length() <= 3) { // make for example short kanji strings larger
+            cardText.setFont(new Font(100));
+        } else {
+            cardText.setFont(new Font(36));
+        }
         VBox vbox = new VBox();
         vbox.getChildren().addAll(cardText);
         vbox.setAlignment(Pos.CENTER_LEFT);
