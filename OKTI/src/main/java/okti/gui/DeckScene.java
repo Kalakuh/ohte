@@ -1,11 +1,15 @@
 package okti.gui;
 
 import java.util.List;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.layout.GridPane;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import okti.domain.Flashcard;
+import okti.event.DeleteFlashcardButtonClickedEventHandler;
 import okti.event.NewCardButtonClickedEventHandler;
 import okti.event.ReturnToMainMenuButtonClickedEventHandler;
 
@@ -24,39 +28,75 @@ public class DeckScene extends AppScene {
     
     /**
      * Adds default buttons and texts.
-     * @param grid Grid of scene
+     * @param pane Pane of the scene
      */
-    private void addDefaultElements(GridPane grid) {
+    private void addDefaultElements(BorderPane pane) {
         Button mainReturnButton = new Button("Palaa päävalikkoon");
         mainReturnButton.setOnMouseClicked(new ReturnToMainMenuButtonClickedEventHandler(super.getApp()));
-        grid.add(mainReturnButton, 0, 0);
+        HBox mainReturn = new HBox();
+        mainReturn.getChildren().add(mainReturnButton);
+        mainReturn.setMaxWidth(200);
         
         Button newCardButton = new Button("Lisää kortti");
         newCardButton.setOnMouseClicked(new NewCardButtonClickedEventHandler(super.getApp(), deckId));
-        grid.add(newCardButton, 1, 0);
+        HBox newCard = new HBox();
+        newCard.getChildren().add(newCardButton);
+        newCard.setMaxWidth(100);
         
-        Text kysymysText = new Text("Kysymys");
-        kysymysText.setUnderline(true);
-        grid.add(kysymysText, 0, 1);
+        HBox filler = new HBox();
+        filler.setMinWidth(200);
         
-        Text vastausText = new Text("Vastaus");
-        vastausText.setUnderline(true);
-        grid.add(vastausText, 1, 1);
+        HBox buttonContainer = new HBox();
+        buttonContainer.getChildren().addAll(mainReturn, filler, newCard);
+        
+        pane.setTop(buttonContainer);
     }
     
     @Override
     public Scene createScene() {
-        GridPane grid = new GridPane();
+        BorderPane pane = new BorderPane();
         
-        addDefaultElements(grid);
+        addDefaultElements(pane);
         
         List<Flashcard> cards = super.getApp().getFlashcardDAO().findByDeckId(deckId);
         
+        HBox container = new HBox();
+        container.setAlignment(Pos.CENTER);
+        VBox questions = new VBox();
+        questions.setSpacing(10);
+        VBox answers = new VBox();
+        answers.setSpacing(10);
+        VBox deleteButtons = new VBox();
+        
+        VBox deleteFiller = new VBox();
+        deleteFiller.setMinHeight(20);
+        deleteButtons.getChildren().add(deleteFiller);
+        
+        Text questionText = new Text("Kysymys");
+        questionText.setUnderline(true);
+        questions.getChildren().add(questionText);
+        
+        Text answerText = new Text("Vastaus");
+        answerText.setUnderline(true);
+        answers.getChildren().add(answerText);
+        
         for (int y = 0; y < cards.size(); y++) {
-            grid.add(new Text(cards.get(y).getQuestion()), 0, y + 2);
-            grid.add(new Text(cards.get(y).getAnswer()), 1, y + 2);
+            questions.getChildren().add(new Text(cards.get(y).getQuestion()));
+            answers.getChildren().add(new Text(cards.get(y).getAnswer()));
+            Button delete = new Button("Poista");
+            delete.setOnMouseClicked(new DeleteFlashcardButtonClickedEventHandler(super.getApp(), cards.get(y).getId()));
+            deleteButtons.getChildren().add(delete);
         }
         
-        return new Scene(grid);
+        VBox filler1 = new VBox();
+        filler1.setMinWidth(10);
+        VBox filler2 = new VBox();
+        filler2.setMinWidth(10);
+        
+        container.getChildren().addAll(questions, filler1, answers, filler2, deleteButtons);
+        
+        pane.setCenter(container);
+        
+        return new Scene(pane);
     }
 }
