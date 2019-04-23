@@ -10,8 +10,8 @@ import okti.db.UserDAO;
 import okti.domain.User;
 
 public class App extends Application {
-    public static final double APP_WIDTH = 800;
-    private static final double APP_HEIGHT = 600;
+    public static final double APP_WIDTH = 960;
+    private static final double APP_HEIGHT = 640;
     private static final String APP_NAME = "OKTI";
     private static DeckDAO deckDAO;
     private static FlashcardDAO flashcardDAO;
@@ -29,7 +29,7 @@ public class App extends Application {
     
     @Override
     public void start(Stage stage) {
-        mainScene = new MainScene(this, deckDAO);
+        mainScene = new MainScene(this);
         
         this.stage = stage;
         this.stage.setTitle("OKTI");
@@ -134,5 +134,13 @@ public class App extends Application {
      */
     public User getCurrentUser() {
         return this.currentUser;
+    }
+    
+    /**
+     * Getter for the stage of the app.
+     * @return The stage of the app
+     */
+    public Stage getStage() {
+        return this.stage;
     }
 }

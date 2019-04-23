@@ -11,13 +11,14 @@ import okti.db.DeckDAO;
 import okti.domain.Deck;
 import okti.event.DeleteDeckButtonClickedEventHandler;
 import okti.event.EditDeckButtonClickedEventHandler;
+import okti.event.ExportDeckButtonClickedEventHandler;
+import okti.event.ImportDeckButtonClickedEventHandler;
 import okti.event.NewDeckButtonClickedEventHandler;
 import okti.event.PractiseDeckButtonClickedEventHandler;
 
 public class MainScene extends AppScene {
-    private static final int COLUMNS = 5;
+    private static final int COLUMNS = 4;
     private final int cellSize;
-    private DeckDAO deckDAO;
     private final double heightRatio = 1.0 / 3;
     
     /**
@@ -25,9 +26,8 @@ public class MainScene extends AppScene {
      * @param app App in which the scene is
      * @param deckDAO deck DAO of the app
      */
-    public MainScene(App app, DeckDAO deckDAO) {
+    public MainScene(App app) {
         super(app);
-        this.deckDAO = deckDAO;
         this.cellSize = (int) (App.APP_WIDTH / COLUMNS);
     }
 
@@ -44,17 +44,22 @@ public class MainScene extends AppScene {
             button.setMinWidth(cellSize);
             button.setMinHeight(cellSize);
             button.setOnMouseClicked(new PractiseDeckButtonClickedEventHandler(super.getApp(), deck.getId()));
-            grid.add(button, 2 * x, 2 * y, 2, 1);
-            x = (x + 1) % 5;
+            grid.add(button, 3 * x, 2 * y, 3, 1);
+            x = (x + 1) % COLUMNS;
             if (x == 0) {
                 y++;
             }
         }
         Button newDeckButton = new Button("Uusi pakka");
         newDeckButton.setMinWidth(cellSize);
-        newDeckButton.setMinHeight(cellSize + cellSize * heightRatio);
+        newDeckButton.setMinHeight(cellSize);
         newDeckButton.setOnMouseClicked(new NewDeckButtonClickedEventHandler(super.getApp()));
-        grid.add(newDeckButton, 2 * x, 2 * y, 2, 2);
+        grid.add(newDeckButton, 3 * x, 2 * y, 3, 1);
+        Button importButton = new Button("Tuo pakka");
+        importButton.setMinWidth(cellSize);
+        importButton.setMinHeight(cellSize * heightRatio);
+        importButton.setOnMouseClicked(new ImportDeckButtonClickedEventHandler(super.getApp()));
+        grid.add(importButton, 3 * x, 2 * y + 1);
     }
     
     /**
@@ -67,16 +72,21 @@ public class MainScene extends AppScene {
         int y = 0;
         for (Deck deck : decks) {
             Button edit = new Button("Muokkaa");
-            edit.setMinWidth(cellSize / 2);
+            edit.setMinWidth(cellSize / 3);
             edit.setMinHeight(cellSize * heightRatio);
             edit.setOnMouseClicked(new EditDeckButtonClickedEventHandler(super.getApp(), deck.getId()));
-            grid.add(edit, 2 * x, 2 * y + 1);
+            grid.add(edit, 3 * x, 2 * y + 1);
             Button delete = new Button("Poista");
-            delete.setMinWidth(cellSize / 2);
+            delete.setMinWidth(cellSize / 3);
             delete.setMinHeight(cellSize * heightRatio);
             delete.setOnMouseClicked(new DeleteDeckButtonClickedEventHandler(super.getApp(), deck.getId()));
-            grid.add(delete, 2 * x + 1, 2 * y + 1);
-            x = (x + 1) % 5;
+            grid.add(delete, 3 * x + 1, 2 * y + 1);
+            Button exportButton = new Button("Vie");
+            exportButton.setMinWidth(cellSize / 3);
+            exportButton.setMinHeight(cellSize * heightRatio);
+            exportButton.setOnMouseClicked(new ExportDeckButtonClickedEventHandler(super.getApp(), deck.getId()));
+            grid.add(exportButton, 3 * x + 2, 2 * y + 1);
+            x = (x + 1) % COLUMNS;
             if (x == 0) {
                 y++;
             }
@@ -88,11 +98,11 @@ public class MainScene extends AppScene {
         List<Deck> decks;
         GridPane grid = new GridPane();
         
-        for (int i = 0; i < 2 * COLUMNS; i++) {
-            grid.getColumnConstraints().add(new ColumnConstraints(cellSize / 2));
+        for (int i = 0; i < 3 * COLUMNS; i++) {
+            grid.getColumnConstraints().add(new ColumnConstraints(cellSize / 3));
         }
         
-        decks = deckDAO.findByUserId(super.getApp().getCurrentUser().getId());
+        decks = super.getApp().getDeckDAO().findByUserId(super.getApp().getCurrentUser().getId());
         
         addDeckButtons(grid, decks);
         addEditButtons(grid, decks);

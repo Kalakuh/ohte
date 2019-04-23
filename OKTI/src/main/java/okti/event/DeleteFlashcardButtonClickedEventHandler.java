@@ -13,6 +13,11 @@ public class DeleteFlashcardButtonClickedEventHandler implements EventHandler<Mo
     private final App app;
     private final int flashcardId;
     
+    /**
+     * Mouse event handler for flashcard deletion button.
+     * @param app App where the button is
+     * @param flashcardId Id of the flashcard
+     */
     public DeleteFlashcardButtonClickedEventHandler(App app, int flashcardId) {
         this.app = app;
         this.flashcardId = flashcardId;

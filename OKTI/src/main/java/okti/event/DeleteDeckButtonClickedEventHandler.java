@@ -24,7 +24,7 @@ public class DeleteDeckButtonClickedEventHandler implements EventHandler<MouseEv
     public void handle(MouseEvent t) {
         try {
             app.getDeckDAO().delete(deckId);
-            app.setScene(new MainScene(app, app.getDeckDAO()));
+            app.setScene(new MainScene(app));
         } catch (SQLException ex) {
 
         }
