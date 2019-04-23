@@ -9,7 +9,7 @@ Sovelluksen on tarkoitus olla oppimista edistävä sovellus, jossa käyttäjä v
 ### Ennen kirjautumista
 
 * Käyttäjä voi luoda käyttäjätunnuksen
-  * Käyttäjätunnuksen tulee olla uniikki paikallisesti ja salasanan täytyy olla yli kahdeksanmerkkinen
+  * Käyttäjätunnuksen tulee olla uniikki paikallisesti
 * Käyttäjä voi kirjautua tunnuksillaan sisään ja pääsee aloitusnäkymään
 
 ### Aloitusnäkymä
@@ -24,9 +24,7 @@ Sovelluksen on tarkoitus olla oppimista edistävä sovellus, jossa käyttäjä v
 ### Muokkausnäkymä
 
 * Muokkausnäkymässä käyttäjä voi lisätä pakkaan uuden opettelukortin
-* Muokkausnäkymässä käyttäjä voi muokata pakassa olevaa opettelukorttia
 * Muokkausnäkymässä käyttäjä voi poistaa pakassa olevan opettelukortin
-* Muokkausnäkymässä käyttäjä voi muuttaa pakan nimeä
 * Muokkausnäkymästä käyttäjä voi poistua aloitusnäkymään
 
 ### Testausnäkymämä
@@ -40,3 +38,4 @@ Sovelluksen on tarkoitus olla oppimista edistävä sovellus, jossa käyttäjä v
 ## Jatkokehitysideoita
 
 * Mahdollisuus sijoittaa kortteihin tekstin lisäksi kuvia
+* Mahdollisuus muokata pakan nimeä ja kortteja ilman, että ne poistaa ja luo uudelleen
