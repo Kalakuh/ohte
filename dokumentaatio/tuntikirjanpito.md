@@ -11,5 +11,6 @@
 | 16.4.2019     | 3             | Käyttäjätunnuksien lisääminen |
 | 16.4.2019     | 0.5           | Dokumentaation lisääminen |
 | 23.4.2019     | 1             | Muokkausruudun uudelleenluonti, käyttötapausten päivitystä |
+| 24.4.2019     | 1             | Pakkojen viennin ja tuonnin implementointi |
 |               |               |              |
-| Yhteensä      | 17                           |
+| Yhteensä      | 18                           |
