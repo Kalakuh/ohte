@@ -1,13 +1,10 @@
 package okti.gui;
 
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
-import okti.db.DeckDAO;
 import okti.domain.Deck;
 import okti.event.DeleteDeckButtonClickedEventHandler;
 import okti.event.EditDeckButtonClickedEventHandler;
