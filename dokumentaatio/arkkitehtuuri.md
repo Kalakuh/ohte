@@ -10,6 +10,20 @@ Ohjelman rakenne koostuu viidestä pakkauksesta:
 * `okti.event` sisältää käyttöliittymän tarvitsemien tapahtumakäsittelijöiden luokat.
 * `okti.util` sisältää apuluokan, jota käytetään satunnaisen opettelukorttijoukon valitsemiseen.
 
+## Käyttöliittymä
+
+Käyttöliittymä sisältää viisi erilaista näkymää
+
+* __Rekisteröitymisnäkymä__ uuden tunnuksen rekisteröimistä varten.
+* __Kirjautumisnäkymä__ tunnuksella kirjautumista varten.
+* __Päänäkymä__ pakkojen luontiin, tuontiin, viemiseen, muokkaamiseen, harjoitteluun ja poistamiseen.
+* __Muokkausnäkymä__ pakan korttien luontiin ja poistamiseen.
+* __Harjoittelunäkymä__ pakan harjoittelemiseen.
+
+Kaikki näkymät on toteutettu luokan `AppScene` perivinä luokkina, jotka toteuttavat `Scene`-olion palauttavan `createScene()`-funktion. Käyttöliittymän ylläpito tapahtuu luokassa `okti.gui.App`.
+
+Pakkauksessa `okti.event` on tapahtumakäsittelijöitä, jotka reagoivat näkymissä tapahtuviin painalluksiin ja näppäimistöön.
+
 ## Luokkakaavio
 
 ![Luokkakaavio](https://github.com/Kalakuh/ohte/blob/master/dokumentaatio/class.png)
