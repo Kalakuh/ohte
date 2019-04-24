@@ -24,13 +24,27 @@ Kaikki näkymät on toteutettu luokan `AppScene` perivinä luokkina, jotka toteu
 
 Pakkauksessa `okti.event` on tapahtumakäsittelijöitä, jotka reagoivat näkymissä tapahtuviin painalluksiin ja näppäimistöön.
 
-## Luokkakaavio
+## Sovelluslogiikka
 
-![Luokkakaavio](https://github.com/Kalakuh/ohte/blob/master/dokumentaatio/class.png)
+Sovellus rakentuu luokkien `User`, `Deck` ja `Flashcard` ympärille, jotka perivät luokan `DatabaseObject`.
 
-## Tietokanta
+![Looginen datamalli](https://github.com/Kalakuh/ohte/blob/master/dokumentaatio/data_model.png)
+
+Luokka `App` pitää yllä sovelluksen tilaa, sisältäen tiedon tämänhetkisestä näkymästä, kirjautuneesta käyttäjästä ja tiedon käsittelyyn käytettävistä DAO-objekteista.
+
+Käyttöliittymän objekteihin liittyy tapahtumakäsittelijöitä, joille sovelluksen `App`-olio annetaan parametrina, jolloin ne voivat muokata sovelluksen tilaa ja esimerkiksi päästä käsiksi tietokantaan DAO-olioiden kautta.
+
+## Tietokantakaavio
+
+Tietokanta sisältää seuraavat tietokantataulut:
 
 ![Tietokantakaavio](https://github.com/Kalakuh/ohte/blob/master/dokumentaatio/relation.png)
+
+Ohjelma luo taulut automaattisesti jos tietokantaa ei vielä ole, eli tietokantatiedostoa ei tarvitse kopioida mistään.
+
+## Alustava luokkakaavio
+
+![Luokkakaavio](https://github.com/Kalakuh/ohte/blob/master/dokumentaatio/class.png)
 
 ## Päätoiminnallisuudet
 
