@@ -34,6 +34,10 @@ Luokka `App` pitää yllä sovelluksen tilaa, sisältäen tiedon tämänhetkises
 
 Käyttöliittymän objekteihin liittyy tapahtumakäsittelijöitä, joille sovelluksen `App`-olio annetaan parametrina, jolloin ne voivat muokata sovelluksen tilaa ja esimerkiksi päästä käsiksi tietokantaan DAO-olioiden kautta.
 
+Luokkien suhteita kuvaava pakkauskaavio:
+
+![Pakkauskaavio](https://github.com/Kalakuh/ohte/blob/master/dokumentaatio/architecture.png)
+
 ## Tietokantakaavio
 
 Tietokanta sisältää seuraavat tietokantataulut:
@@ -41,10 +45,6 @@ Tietokanta sisältää seuraavat tietokantataulut:
 ![Tietokantakaavio](https://github.com/Kalakuh/ohte/blob/master/dokumentaatio/relation.png)
 
 Ohjelma luo taulut automaattisesti jos tietokantaa ei vielä ole, eli tietokantatiedostoa ei tarvitse kopioida mistään.
-
-## Alustava luokkakaavio
-
-![Luokkakaavio](https://github.com/Kalakuh/ohte/blob/master/dokumentaatio/class.png)
 
 ## Päätoiminnallisuudet
 
