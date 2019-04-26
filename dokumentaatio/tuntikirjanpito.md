@@ -12,6 +12,7 @@
 | 16.4.2019     | 0.5           | Dokumentaation lisääminen |
 | 23.4.2019     | 1             | Muokkausruudun uudelleenluonti, käyttötapausten päivitystä |
 | 24.4.2019     | 1             | Pakkojen viennin ja tuonnin implementointi |
-| 24.4.2919     | 2             | Dokumentaation päivittäminen |
+| 24.4.2019     | 2             | Dokumentaation päivittäminen |
+| 26.4.2019     | 0.5           | Pakkauskaavion päivittäminen |
 |               |               |              |
-| Yhteensä      | 20                           |
+| Yhteensä      | 20.5                         |
