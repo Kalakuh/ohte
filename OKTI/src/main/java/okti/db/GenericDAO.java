@@ -108,6 +108,9 @@ public abstract class GenericDAO<T extends DatabaseObject> implements DAO<T, Int
 
     @Override
     public void delete(Integer key) throws SQLException {
+        if (key == null) {
+            return;
+        }
         T object = findOne(key);
         if (object == null) {
             return;

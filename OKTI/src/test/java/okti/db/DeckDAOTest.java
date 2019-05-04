@@ -96,4 +96,34 @@ public class DeckDAOTest {
             fail();
         }
     }
+    
+    @Test
+    public void deletingNullDoesntThrowError() {
+        try {
+            instance.delete(null);
+        } catch (SQLException e) {
+            fail();
+        }
+    }
+    
+    @Test
+    public void deletingNonexistentObjectDoesntThrowError() {
+        try {
+            instance.saveOrUpdate(new Deck("Hey", 0));
+            int id = instance.findLast().getId();
+            instance.delete(42);
+            assertTrue(instance.findLast().getId() == id);
+        } catch (SQLException e) {
+            fail();
+        }
+    }
+    
+    @Test
+    public void findLastReturnsNullForEmptyTable() {
+        try {
+            assertTrue(instance.findLast() == null);
+        } catch (SQLException e) {
+            fail();
+        }
+    }
 }
