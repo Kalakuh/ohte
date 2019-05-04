@@ -39,3 +39,5 @@ Sovelluksen on tarkoitus olla oppimista edistävä sovellus, jossa käyttäjä v
 
 * Mahdollisuus sijoittaa kortteihin tekstin lisäksi kuvia
 * Mahdollisuus muokata pakan nimeä ja kortteja ilman, että ne poistaa ja luo uudelleen
+* Esimerkiksi Leitner-järjestelmää hyödyntävä toteutus opettelukorttien näyttämiseen
+* Näytön vieritys, kun pakkojen tai korttien määrä kasvaa liian suureksi näytettäväksi
