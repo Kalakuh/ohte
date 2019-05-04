@@ -10,6 +10,7 @@ OKTI on oppista edistävä opettelukorttisovellus (*engl.* flash card). OKTIssa 
 * [Käyttöohje](https://github.com/Kalakuh/ohte/blob/master/dokumentaatio/kayttoohje.md)
 * [Työaikakirjanpito](https://github.com/Kalakuh/ohte/blob/master/dokumentaatio/tuntikirjanpito.md)
 * [Arkkitehtuuri](https://github.com/Kalakuh/ohte/blob/master/dokumentaatio/arkkitehtuuri.md)
+* [Testausdokumentti](https://github.com/Kalakuh/ohte/blob/master/dokumentaatio/testaus.md)
 * [Tietokantakaavio](https://github.com/Kalakuh/ohte/blob/master/dokumentaatio/relation.png)
 
 ## Julkaisut
