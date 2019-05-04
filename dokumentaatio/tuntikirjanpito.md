@@ -14,5 +14,6 @@
 | 24.4.2019     | 1             | Pakkojen viennin ja tuonnin implementointi |
 | 24.4.2019     | 2             | Dokumentaation päivittäminen |
 | 26.4.2019     | 0.5           | Pakkauskaavion päivittäminen |
+| 4.5.2019      | 0.5           | Yksikkötestien lisäystä ja dokumentaation päivitystä |
 |               |               |              |
-| Yhteensä      | 20.5                         |
+| Yhteensä      | 21                           |
