@@ -15,5 +15,6 @@
 | 24.4.2019     | 2             | Dokumentaation päivittäminen |
 | 26.4.2019     | 0.5           | Pakkauskaavion päivittäminen |
 | 4.5.2019      | 0.5           | Yksikkötestien lisäystä ja dokumentaation päivitystä |
+| 5.5.2019      | 0.5           | JavaDocin lisäys luokkamäärittelyyn |
 |               |               |              |
-| Yhteensä      | 21                           |
+| Yhteensä      | 21.5                         |
