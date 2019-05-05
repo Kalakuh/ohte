@@ -55,3 +55,17 @@ Uuden pakan luominen tapahtuu aloitusnäkymässä seuraavasti:
 ![Uusi pakka](https://github.com/Kalakuh/ohte/blob/master/dokumentaatio/new_deck.png)
 
 Uusi pakka -painikkeen painaminen aktivoi tapahtumakäsittelijän, joka kysyy `App`-luokan funktion avulla käyttäjältä pakan nimeä. Sen jälkeen tapahtumakäsittelijä pyytää `App`-luokan instanssilta `DeckDAO`-objektia, johon uusi pakka talletetaan. Tämän jälkeen tapahtumakäsittelijä selvittää uusimman pakan ID:n `DeckDAO`:lta, ja vaihtaa `App`-luokan avulla kohtauksen pakanmuokkauskohtaukseen, jossa avoinna ovat uuden pakan tiedot.
+
+### Pakan muokkaus
+
+Kun käyttäjä on muokkausnäkymässä hän voi lisätä kortin seuraavasti: 
+
+![Uusi kortti](https://github.com/Kalakuh/ohte/blob/master/dokumentaatio/new_card_sequence.png)
+
+Lisää kortti -painikkeen painaminen aktivoi tapahtumakäsittelijän, joka kysyy `App`-luokan avulla käyttäjältä kortin kysymystä ja vastausta. Jos kumpikaan annetuista merkkijonoista ei ole tyhjä, tapahtumakäsittelijä pyytää `App`-luokan instanssilta `FlashcardDAO`-objektin, jonne uusi opettelukortti talletetaan. Lopuksi tapahtumakäsittelijä päivittää näkymän luomalla `DeckScene`-objektin uusiksi.
+
+## Arkkitehtuurin heikkoudet
+
+Tapahtumakäsittelijät `ImportDeckButtonClickedEventHandler` ja `ExportDeckButtonClickedEventHandler` toteuttavat luokan sisällä tiedostoon luvun ja kirjoittamisen, minkä voisi sinänsä eriyttää omiksi luokikseen. Nykyisen tavan vaatima koodi oli kuitenkin sen verran lyhyt ja luokkien nimistä käy ilmi mitä luokka tekee, joten tämä jätettiin tällä kertaa toteuttamatta.
+
+Lisäksi koska `App`-objekteja voi olla vain yksi, voisi sen toteuttaa Sigleton-toteutuksella.
