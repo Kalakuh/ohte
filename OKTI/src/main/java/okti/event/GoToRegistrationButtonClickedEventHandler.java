@@ -5,6 +5,9 @@ import javafx.scene.input.MouseEvent;
 import okti.gui.App;
 import okti.gui.RegisterScene;
 
+/**
+ * This class implements the event handler for going to the registration scene when the link has been clicked.
+ */
 public class GoToRegistrationButtonClickedEventHandler implements EventHandler<MouseEvent> {
     private App app;
     

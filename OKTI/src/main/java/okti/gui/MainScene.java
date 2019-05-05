@@ -13,6 +13,9 @@ import okti.event.ImportDeckButtonClickedEventHandler;
 import okti.event.NewDeckButtonClickedEventHandler;
 import okti.event.PractiseDeckButtonClickedEventHandler;
 
+/**
+ * This class implements the UI of main menu of the app.
+ */
 public class MainScene extends AppScene {
     private static final int COLUMNS = 4;
     private final int cellSize;

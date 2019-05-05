@@ -6,6 +6,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import okti.domain.User;
 
+/**
+ * This class implements the functionality of DAO for User objects.
+ */
 public class UserDAO extends GenericDAO<User> {
     private static final String TABLE_NAME = "User";
     

@@ -9,6 +9,9 @@ import javafx.scene.text.Text;
 import okti.domain.User;
 import okti.gui.App;
 
+/**
+ * This class implements the event handler for registering a new account when the button has been clicked.
+ */
 public class RegisterButtonClickedEventHandler implements EventHandler<MouseEvent> {
     private final App app;
     private final TextField usernameField;

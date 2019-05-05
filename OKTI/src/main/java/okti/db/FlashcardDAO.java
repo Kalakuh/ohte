@@ -8,6 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 import okti.domain.Flashcard;
 
+/**
+ * Class implements the DAO functionality for Flashcard objects.
+ */
 public class FlashcardDAO extends GenericDAO<Flashcard> {
     private static final String TABLE_NAME = "Flashcard";
     

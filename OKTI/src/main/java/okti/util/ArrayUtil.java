@@ -3,6 +3,9 @@ package okti.util;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This class provides utility functions for arrays.
+ */
 public class ArrayUtil {
     /**
      * Private constructor so that jacoco reporting works correctly.

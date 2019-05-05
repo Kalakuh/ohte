@@ -2,6 +2,9 @@ package okti.db;
 
 import java.sql.*;
 
+/**
+ * Class that implements the functionality for accessing the database.
+ */
 public class Database {
     private final String databaseAddress;
 

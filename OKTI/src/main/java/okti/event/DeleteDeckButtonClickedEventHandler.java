@@ -6,6 +6,9 @@ import javafx.scene.input.MouseEvent;
 import okti.gui.App;
 import okti.gui.MainScene;
 
+/**
+ * This class implements the event handler for deleting a deck when the corresponding button is clicked.
+ */
 public class DeleteDeckButtonClickedEventHandler implements EventHandler<MouseEvent> {
     private App app;
     private int deckId;

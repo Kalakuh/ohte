@@ -4,6 +4,9 @@ import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 import okti.gui.App;
 
+/**
+ * This class implements the event handler for going back to the main menu when the button is clicked.
+ */
 public class ReturnToMainMenuButtonClickedEventHandler implements EventHandler<MouseEvent> {
     private App app;
     

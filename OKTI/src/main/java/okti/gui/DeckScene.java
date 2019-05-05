@@ -13,6 +13,9 @@ import okti.event.DeleteFlashcardButtonClickedEventHandler;
 import okti.event.NewCardButtonClickedEventHandler;
 import okti.event.ReturnToMainMenuButtonClickedEventHandler;
 
+/**
+ * This class implements the UI of the scene where the user edits the deck.
+ */
 public class DeckScene extends AppScene {
     private final int deckId;
     

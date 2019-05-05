@@ -2,8 +2,6 @@ package okti.event;
 
 import java.io.File;
 import java.io.FileWriter;
-import java.io.IOException;
-import java.sql.SQLException;
 import java.util.List;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
@@ -12,6 +10,9 @@ import okti.domain.Deck;
 import okti.domain.Flashcard;
 import okti.gui.App;
 
+/**
+ * This class implements the event handler for exporting a deck when the corresponding button is clicked.
+ */
 public class ExportDeckButtonClickedEventHandler implements EventHandler<MouseEvent> {
     private App app;
     private int deckId;

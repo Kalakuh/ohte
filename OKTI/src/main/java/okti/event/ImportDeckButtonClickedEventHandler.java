@@ -14,6 +14,9 @@ import okti.domain.Flashcard;
 import okti.gui.App;
 import okti.gui.MainScene;
 
+/**
+ * This class implements the event handler for importing a deck when the corresponding button has been clicked.
+ */
 public class ImportDeckButtonClickedEventHandler implements EventHandler<MouseEvent> {
     private App app;
     

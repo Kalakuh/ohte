@@ -2,6 +2,9 @@ package okti.gui;
 
 import javafx.scene.Scene;
 
+/**
+ * This class implements the abstract structure of the scene objects that are used to build the UI.
+ */
 public abstract class AppScene {
     private App app;
     

@@ -7,6 +7,9 @@ import okti.domain.Flashcard;
 import okti.gui.App;
 import okti.gui.DeckScene;
 
+/**
+ * This class implements the event handler for creating a new flashcard to a deck when the corresponding button has been clicked.
+ */
 public class NewCardButtonClickedEventHandler implements EventHandler<MouseEvent> {
     private App app;
     private int deckId;

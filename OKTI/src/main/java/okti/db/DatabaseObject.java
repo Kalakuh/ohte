@@ -1,5 +1,8 @@
 package okti.db;
 
+/**
+ * Abstract class that objects saved to the database will inherit.
+ */
 public abstract class DatabaseObject {
     private int id;
     

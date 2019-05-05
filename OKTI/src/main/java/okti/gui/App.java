@@ -9,6 +9,9 @@ import okti.db.FlashcardDAO;
 import okti.db.UserDAO;
 import okti.domain.User;
 
+/**
+ * This class implements the basic functionality of the app for updating the current scene and providing information about the current state of the app to other classes.
+ */
 public class App extends Application {
     public static final double APP_WIDTH = 960;
     private static final double APP_HEIGHT = 640;

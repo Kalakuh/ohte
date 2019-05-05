@@ -8,6 +8,9 @@ import javafx.scene.text.Text;
 import okti.domain.Flashcard;
 import okti.gui.App;
 
+/**
+ * This class implements the event handler for responding to user's keyboard actions in the practice scene.
+ */
 public class PracticeKeyboardEventHandler implements EventHandler<KeyEvent> {
     private List<Flashcard> cards;
     private boolean flipped; // false == question side, true == answer side

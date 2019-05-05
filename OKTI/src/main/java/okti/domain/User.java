@@ -2,6 +2,9 @@ package okti.domain;
 
 import okti.db.DatabaseObject;
 
+/**
+ * This class implements the functionality of users.
+ */
 public class User extends DatabaseObject {
     private final String username;
     private final String password;

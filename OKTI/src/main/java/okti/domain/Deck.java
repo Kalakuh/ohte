@@ -6,6 +6,9 @@ import okti.db.Database;
 import okti.db.DatabaseObject;
 import okti.db.FlashcardDAO;
 
+/**
+ * This class implements the functionality of flashcard decks.
+ */
 public class Deck extends DatabaseObject {
     private String name;
     private int userId;

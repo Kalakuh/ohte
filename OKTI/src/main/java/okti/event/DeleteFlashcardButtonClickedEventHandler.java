@@ -1,14 +1,15 @@
 package okti.event;
 
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 import okti.domain.Flashcard;
 import okti.gui.App;
 import okti.gui.DeckScene;
 
+/**
+ * This class implements the event handler for deleting a flashcard when the corresponding button is clicked.
+ */
 public class DeleteFlashcardButtonClickedEventHandler implements EventHandler<MouseEvent> {
     private final App app;
     private final int flashcardId;

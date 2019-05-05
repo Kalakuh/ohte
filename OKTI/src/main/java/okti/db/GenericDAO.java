@@ -8,6 +8,10 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Generic abstract implementation of DAO that actual DAOs will inherit.
+ * @param <T> 
+ */
 public abstract class GenericDAO<T extends DatabaseObject> implements DAO<T, Integer> {
     private final Database database;
     private final String tableName;

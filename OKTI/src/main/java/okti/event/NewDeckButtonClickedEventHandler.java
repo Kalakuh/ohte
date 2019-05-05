@@ -7,6 +7,9 @@ import okti.domain.Deck;
 import okti.gui.App;
 import okti.gui.DeckScene;
 
+/**
+ * This class implements the event handler for creating a new deck when the button has been clicked.
+ */
 public class NewDeckButtonClickedEventHandler implements EventHandler<MouseEvent> {
     private App app;
     

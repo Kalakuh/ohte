@@ -15,6 +15,9 @@ import javafx.scene.text.Text;
 import okti.event.GoToRegistrationButtonClickedEventHandler;
 import okti.event.LoginButtonClickedEventHandler;
 
+/**
+ * This class implements the UI of the scene where the user logs in.
+ */
 public class LoginScene extends AppScene {
     
     /**

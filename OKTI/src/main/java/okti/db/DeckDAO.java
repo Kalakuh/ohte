@@ -8,6 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 import okti.domain.Deck;
 
+/**
+ * Class implements the DAO functionality for Deck objects.
+ */
 public class DeckDAO extends GenericDAO<Deck> {
     private static final String TABLE_NAME = "Deck";
     

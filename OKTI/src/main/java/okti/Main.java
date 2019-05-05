@@ -9,7 +9,7 @@ import okti.gui.App;
 public class Main {
     
     /**
-     * Main function of the program.
+     * Main function of the program. Initializes database related objects and launches the app.
      * @param args the command line arguments
      */
     public static void main(String[] args) {

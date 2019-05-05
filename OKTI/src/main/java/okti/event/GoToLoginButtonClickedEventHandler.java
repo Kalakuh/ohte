@@ -5,6 +5,9 @@ import javafx.scene.input.MouseEvent;
 import okti.gui.App;
 import okti.gui.LoginScene;
 
+/**
+ * This class implements the event handler for going to the login scene when the link has been clicked.
+ */
 public class GoToLoginButtonClickedEventHandler implements EventHandler<MouseEvent> {
     private App app;
     

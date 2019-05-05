@@ -2,6 +2,9 @@ package okti.domain;
 
 import okti.db.DatabaseObject;
 
+/**
+ * This class implements the functionality of flashcards.
+ */
 public class Flashcard extends DatabaseObject {
     private final String question;
     private final String answer;

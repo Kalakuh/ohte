@@ -5,6 +5,9 @@ import javafx.scene.input.MouseEvent;
 import okti.gui.App;
 import okti.gui.PracticeScene;
 
+/**
+ * This class implements the event handler going to the practice scene when the button has been clicked.
+ */
 public class PractiseDeckButtonClickedEventHandler implements EventHandler<MouseEvent> {
     private App app;
     private int deckId;

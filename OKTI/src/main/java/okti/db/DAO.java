@@ -3,6 +3,11 @@ package okti.db;
 import java.sql.*;
 import java.util.*;
 
+/**
+ * Class provides an interface to database persistence mechanism.
+ * @param <T> Type of the saved data
+ * @param <K> Type of the primary key, usually an integer
+ */
 public interface DAO<T, K> {
     /**
      * Find object from database by key.

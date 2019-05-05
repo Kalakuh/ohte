@@ -1,12 +1,13 @@
 package okti.event;
 
-import java.sql.SQLException;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
-import okti.domain.Deck;
 import okti.gui.App;
 import okti.gui.DeckScene;
 
+/**
+ * This class implements the event handler for moving to the deck editing scene when the corresponding button is clicked.
+ */
 public class EditDeckButtonClickedEventHandler implements EventHandler<MouseEvent> {
     private App app;
     private int deckId;

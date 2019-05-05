@@ -13,6 +13,9 @@ import okti.event.PracticeKeyboardEventHandler;
 import okti.event.ReturnToMainMenuButtonClickedEventHandler;
 import okti.util.ArrayUtil;
 
+/**
+ * This class implements the UI of the scene where the user practises a deck.
+ */
 public class PracticeScene extends AppScene {
     private final int deckId;
     private final static int PRACTICE_SET_SIZE = 10;
